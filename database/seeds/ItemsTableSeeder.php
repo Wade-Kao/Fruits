@@ -25,7 +25,7 @@ class ItemsTableSeeder extends Seeder
         //         'pic' => $faker->imageUrl($width = 640, $height = 480)]);
         // }
 
-        //改下方指令
+        //改下方指令從factory抓取
         factory(Item::class, 100)->create();
     }
 }
