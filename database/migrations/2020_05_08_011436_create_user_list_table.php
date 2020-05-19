@@ -16,7 +16,8 @@ class CreateUserListTable extends Migration
         Schema::create('user_list', function (Blueprint $table) {
             $table->bigIncrements('UNo');
             $table->string('UId', 50);
-            $table->string('UName', 50)->nullable();
+            $table->string('UName', 50);
+            $table->string('UPassword', 50);
             $table->string('UPhone', 50)->nullable();
             $table->string('UAddress', 250)->nullable();
             $table->string('USex', 50)->nullable();

@@ -49,3 +49,7 @@ Route::resource('Items', 'ItemController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('index', 'HomeController@index');
+
+Route::get('itemsave', 'ItemController@store');
+// Route::post(‘tasks’,[‘as’ =>
+// ‘tasks.store’,’uses’=>’TasksController@store’]);
