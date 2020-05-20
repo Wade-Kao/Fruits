@@ -110,6 +110,11 @@ class ItemController extends Controller
      */
     public function destroy($id)
     {
-        //
+
+        // //使用資料參考來刪除
+        // $item->delete();
+
+        // //使用主鍵來刪除
+        // Item::destroy($item->id);
     }
 }

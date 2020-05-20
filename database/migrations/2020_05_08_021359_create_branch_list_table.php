@@ -17,6 +17,7 @@ class CreateBranchListTable extends Migration
             $table->bigIncrements('BNo');
             $table->string('Bname', 250);
             $table->string('BRemark', 250)->nullable();
+            $table->timestamps();
         });
     }
 

@@ -53,3 +53,7 @@ Route::get('index', 'HomeController@index');
 Route::get('itemsave', 'ItemController@store');
 // Route::post(‘tasks’,[‘as’ =>
 // ‘tasks.store’,’uses’=>’TasksController@store’]);
+
+Route::get('/usershow/{UNo}', 'User_listController@index');
+Route::get('/userupdate/{id}', 'User_listController@update');
+Route::get('/userdestroy/{id}', 'User_listController@destroy');

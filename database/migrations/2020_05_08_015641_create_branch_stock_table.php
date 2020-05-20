@@ -25,6 +25,7 @@ class CreateBranchStockTable extends Migration
             $table->string('BSReUser', 50)->nullable();
             $table->timestamp('BSReDateTime')->nullable();
             $table->string('BSRemark', 250)->nullable();
+            $table->timestamps();
         });
     }
 

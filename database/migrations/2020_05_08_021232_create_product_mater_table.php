@@ -16,6 +16,7 @@ class CreateProductMaterTable extends Migration
         Schema::create('product_mater', function (Blueprint $table) {
             $table->bigIncrements('PNo');
             $table->string('PName', 50)->nullable();
+            $table->timestamps();
         });
     }
 

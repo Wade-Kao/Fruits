@@ -20,6 +20,7 @@ class CreatePlatformDetailTable extends Migration
             $table->string('PName', 50)->nullable();
             $table->integer('Qty')->nullable();
             $table->string('PRemark', 250)->nullable();
+            $table->timestamps();
         });
     }
 

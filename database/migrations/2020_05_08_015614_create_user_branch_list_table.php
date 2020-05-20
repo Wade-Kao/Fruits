@@ -17,6 +17,7 @@ class CreateUserBranchListTable extends Migration
             $table->bigIncrements('UBNo');
             $table->integer('price')->nullable();
             $table->string('UId', 50)->nullable();
+            $table->timestamps();
         });
     }
 

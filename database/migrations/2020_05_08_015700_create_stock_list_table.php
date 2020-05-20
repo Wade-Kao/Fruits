@@ -18,6 +18,7 @@ class CreateStockListTable extends Migration
             $table->integer('PDNo')->nullable();
             $table->integer('BSQty')->nullable();
             $table->string('PRemark', 250)->nullable();
+            $table->timestamps();
         });
     }
 

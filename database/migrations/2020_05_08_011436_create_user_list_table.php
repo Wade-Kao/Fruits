@@ -24,7 +24,7 @@ class CreateUserListTable extends Migration
             $table->string('ULevel', 50)->nullable();;
             $table->string('URemark', 50)->nullable();
             $table->boolean('ULock')->default(false);
-            $table->timestamp('UTimestamp')->nullable();;
+            $table->timestamps();
         });
 
     }

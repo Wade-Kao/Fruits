@@ -22,6 +22,7 @@ class CreateOrderMainTable extends Migration
             $table->string('OPayment', 50)->nullable();
             $table->string('OShipping', 50)->nullable();
             $table->string('ORemark', 250)->nullable();
+            $table->timestamps();
         });
     }
 

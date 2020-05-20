@@ -19,6 +19,7 @@ class CreateOrderDetailsTable extends Migration
             $table->integer('PDNo')->nullable();
             $table->decimal('OPrice', 18, 4)->nullable();
             $table->integer('OQty')->nullable();
+            $table->timestamps();
         });
     }
 

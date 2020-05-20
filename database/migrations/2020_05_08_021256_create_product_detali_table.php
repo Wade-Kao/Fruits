@@ -25,6 +25,7 @@ class CreateProductDetaliTable extends Migration
             $table->boolean('PSsales')->default(false);
             $table->string('PImages', 250)->nullable();
             $table->string('PRemark', 250)->nullable();
+            $table->timestamps();
         });
     }
 

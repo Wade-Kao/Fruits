@@ -16,6 +16,7 @@ class CreatePlatformMasterTable extends Migration
         Schema::create('platform_master', function (Blueprint $table) {
             $table->bigIncrements('GNo');
             $table->date('GDate')->nullable();;
+            $table->timestamps();
         });
     }
 

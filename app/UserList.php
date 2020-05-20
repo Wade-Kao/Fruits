@@ -4,9 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class User_list extends Model
+class UserList extends Model
 {
-    //
-    public $timestamps = false;
+    //    public $timestamps = false;
     protected $table = 'User_list';
+
+    protected $primaryKey = 'UNo';
 }
