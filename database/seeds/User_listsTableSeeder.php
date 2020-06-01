@@ -1,6 +1,6 @@
 <?php
 
-use App\User_list;
+use App\ListUser;
 use Illuminate\Database\Seeder;
 
 class User_listsTableSeeder extends Seeder
@@ -12,7 +12,8 @@ class User_listsTableSeeder extends Seeder
      */
     public function run()
     {
-        User_list::truncate();
-        User_list::create(['UId' => 'AD', 'UTimestamp' => '20151208000000']);
+        factory(\App\ListUser::class, 10)->create();
+        // User_list::truncate();
+        // User_list::create(['UId' => 'AD', 'UTimestamp' => '20151208000000']);
     }
 }

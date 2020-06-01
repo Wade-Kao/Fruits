@@ -11,10 +11,18 @@
 
         <!-- Styles -->
         <style>
+
             html, body {
+                background-image:url('{{ Voyager::image( Voyager::setting("site.bg_image"), voyager_asset("images/bg.jpg") ) }}');
+
+                background-size: cover; /* px % auto cover contain */
+                background-position: center;
+                background-attachment: fixed; /* 圖不跟著移動 */
+                 font-family: "思源黑體", "標楷體", sans-serif;
                 background-color: #fff;
-                color: #636b6f;
-                font-family: 'Nunito', sans-serif;
+                color: #fff;
+              /*  {{-- color: #636b6f;
+               font-family: 'Nunito', sans-serif; --}} */
                 font-weight: 200;
                 height: 100vh;
                 margin: 0;
@@ -49,9 +57,11 @@
             }
 
             .links > a {
-                color: #636b6f;
+             /*   color: #636b6f;*/
+             /*color: #00A0DF;*/
+             color: #fff;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 25px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
@@ -72,19 +82,21 @@
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
-                        @if (Route::has('register'))
+                        {{-- @if (Route::has('register'))
                             <a href="{{ route('register') }}">Register</a>
-                        @endif
+                        @endif --}}
                     @endauth
                 </div>
             @endif
 
             <div class="content">
                 <div class="title m-b-md">
-                    Laravel
+                    {{--  Laravel  --}}
+                    <img src="  {{ Voyager::image( setting('site.logo')) }}" alt="">
+
                 </div>
 
-                <div class="links">
+                {{-- <div class="links">
                     <a href="https://laravel.com/docs">Docs</a>
                     <a href="https://laracasts.com">Laracasts</a>
                     <a href="https://laravel-news.com">News</a>
@@ -92,7 +104,7 @@
                     <a href="https://nova.laravel.com">Nova</a>
                     <a href="https://forge.laravel.com">Forge</a>
                     <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+                </div> --}}
             </div>
         </div>
     </body>
