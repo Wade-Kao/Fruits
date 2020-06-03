@@ -78,8 +78,7 @@
                                 @endif
                             </div>
                         </div>
-                        <a href="{{ url('login/facebook') }}">@lang('Login From Facebook')</a></br>
-                        <a href="{{ url('login/google') }}">@lang('Login From Google+')</a>
+
                     </form>
                 </div>
             </div>

@@ -1,4 +1,23 @@
-       {{--      @foreach($items as $menu_item)
+<ul>
+    @foreach($items as $menu_item)
+        <li><a href="{{ $menu_item->link() }}"><div>{{ $menu_item->title }}</div></a>
+        @if( count($menu_item->children) >0 )
+            <ul>
+                @foreach($menu_item->children as $sub_menu_item)
+                    <li>
+                        <a href="{{ $sub_menu_item->link() }}">
+                            <div>{{ $sub_menu_item->title }}</div>
+                        </a>
+                    </li>
+                @endforeach
+            </ul>
+        @endif
+        </li>
+    @endforeach
+</ul>
+
+
+      {{--      @foreach($items as $menu_item)
             <li class="nav-item "><a href="{{ $menu_item->link() }}" class="nav-link">{{ $menu_item->title }}</a></li>
              @if(count($menu_item->children)>0)
                     @foreach($menu_item->children as $menu_sub_item)
@@ -9,14 +28,14 @@
          @endforeach
          --}}
 
-              @foreach($items as $menu_item)
+              {{--  @foreach($items as $menu_item)
             <li class="dropdown"><a href="{{ $menu_item->link() }}" class="dropdown-toggle" data-toggle="dropdown" >{{ $menu_item->title }}</a></li>
              @if(count($menu_item->children)>0)
                     @foreach($menu_item->children as $menu_sub_item)
                         <li ><a href="{{ $menu_sub_item->link() }}" class="dropdown-item">{{ $menu_sub_item->title }}</a></li>
                     @endforeach
             @endif
-         @endforeach
+         @endforeach  --}}
   {{--
          <ul class="dropdown-menu">
 

@@ -78,3 +78,23 @@ Route::get('/selflogin', 'BranchStockController@selflogin');
 
 Route::get('login/{provider}', 'Auth\LoginController@redirectToProvider');
 Route::get('login/{provider}/callback', 'Auth\LoginController@handleProviderCallback');
+
+Route::get('/flashmassageindex', 'HomeController@flashmassageindex');
+
+Route::get('/shops/addItem/{item}', 'ShopController@addItem');
+Route::get('/shops/updateItem/{item}/{qty}', 'ShopController@updateItem');
+Route::get('/shops/removeItem/{item}', 'ShopController@removeItem');
+Route::get('/shops/getcontent', 'ShopController@getContent');
+Route::get('/shops/checkempty', 'ShopController@checkEmpty');
+Route::get('/shops/gettotalquantity', 'ShopController@getTotalQuantity');
+Route::get('/shops/getsubtotal', 'ShopController@getSubTotal');
+Route::get('/shops/gettotal', 'ShopController@getTotal');
+Route::get('/shops/clear', 'ShopController@clear');
+
+Route::get('/sessions/save', 'HomeController@saveSession');
+Route::get('/sessions/saveary', 'HomeController@savearySession');
+Route::get('/sessions/get', 'HomeController@getSession');
+Route::get('/sessions/push', 'HomeController@pushSession');
+Route::get('/sessions/has', 'HomeController@hasSession');
+Route::get('/sessions/all', 'HomeController@allSession');
+Route::get('/sessions/forget', 'HomeController@forgetSession');

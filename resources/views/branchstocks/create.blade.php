@@ -27,7 +27,7 @@
 
 .ad{
 	width: 100%;
- 	 height: 220px;
+ 	 height: 420px;
     text-align: left;
     position: absolute;
     top: 40%;
@@ -88,7 +88,14 @@
        <div class="container-fluid">
          <div class="row mt-5">
            <div class="offset-sm-3 col-sm-6 btn btn-light text-dark  ad">
-			     <form action="#" method="post">
+
+            {{-- http://voyage.com:6080/items/create --}}
+            {!! Form::open(['action'=>'BranchStockController@store','method'=>'POST','files'=>true]) !!}
+
+          @include('branchstocks._form')
+
+            {!! Form::close() !!}
+			     {{--  <form action="#" method="post">
 		         <p>選擇商品:
                 <select name="Fruits">
                   <option value="Taipei">---</option>
@@ -112,7 +119,7 @@
                 <input type="reset" value="取消" />
 
 
-		      </form>
+		      </form>  --}}
           </div>
          </div>
        </div>

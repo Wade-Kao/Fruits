@@ -1,3 +1,5 @@
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 @extends('voyager::master')
 
 @section('page_title', __('voyager::generic.'.(isset($dataTypeContent->id) ? 'edit' : 'add')).' '.$dataType->getTranslatedAttribute('display_name_singular'))
@@ -46,8 +48,8 @@
                             </div>
 
                        <div class="form-group">
-
-                                <input type="hidden"" class="form-control" id="email" name="email" placeholder="{{ __('voyager::generic.email') }}"
+                        <label for="name">{{ __('voyager::generic.email') }}</label>
+                                <input type="text" class="form-control" id="email" name="email" placeholder="{{ __('voyager::generic.email') }}"
                                        value="{{ old('email', $dataTypeContent->email ?? '') }}">
                             </div>
 
@@ -110,19 +112,133 @@
                 </div>
 
 
+{{--
+                <div class="form-group">
+                    <label for="happy" class="col-sm-4 col-md-4 control-label text-right">性別</label>
+                    <div class="col-sm-7 col-md-7">
+                        <div class="input-group">
+                            <div id="radioBtn" class="btn-group">
+                                <a class="btn btn-primary btn-sm active" data-toggle="happy" data-title="男">YES</a>
+                                <a class="btn btn-primary btn-sm notActive" data-toggle="happy" data-title="女">NO</a>
+                            </div>
+                            <input type="hidden" name="happy" id="happy">
+                        </div>
+                    </div>
+                </div>
+                <br /><br />  --}}
+
+
   {{--  性別  --}}
-  <div class="form-group">
+@php
+        $mchecked='';
+        $mactive='';
+        $wchecked= '';
+         $wactive='';
+        if (  old('phone', $dataTypeContent->sex ?? '')=='男' ){
+            $mchecked= 'checked';
+            $mactive='active';
+        }else{
+            $wchecked= 'checked';
+              $wactive='active';
+        }
+@endphp
     <label for="sex">性別</label><br>
-   男：<input type="radio"  id="sex" name="sex"  value="男">
-   女：<input type="radio"  id="sex" name="sex"  value="女">
+<div class="btn-group" data-toggle="buttons">
+
+    <label class="btn btn-primary  {{ $mactive}}">
+      <input type="radio" name="sex" id="sex" value="男"  {{ $mchecked}}> 男
+    </label>
+    <label class="btn btn-primary  {{ $wactive}}">
+      <input type="radio" name="sex" id="sex"  value="女"  {{ $wchecked}}>女
+    </label>
+
+  </div>
+
+  {{--  <div class="form-group">
+
+    <label for="sex">性別</label><br>
+   男：<input type="radio"  id="sex" name="sex"  value="男" {{ $mchecked}}> &nbsp;
+   女：<input type="radio"  id="sex" name="sex"  value="女" {{ $wchecked}}>
 </div>
 
-  {{--  停權  --}}
+
+<div class="form-group">
+    <label for="sex">性別</label><br>
+    <div class="form-control">
+      <label class="radio-inline">
+    <input type="radio"  id="sex" name="sex"  value="男" {{ $mchecked}}>    男
+      </label>
+      <label class="radio-inline">
+        <input type="radio"  id="sex" name="sex"  value="女" {{ $wchecked}}>女
+      </label>
+    </div>
+  </div>  --}}
+
+
+   {{--  停權  --}}
+@php
+$ochecked='';
+$oactive='';
+$fchecked= '';
+ $factive='';
+/*
+if (  old('phone', $dataTypeContent->lock ?? '')=='0' ){
+    $ochecked= 'checked';
+    $oactive='active';
+}else{
+    $fchecked= 'checked';
+      $factive='active';
+} */
+
+switch ( old('phone', $dataTypeContent->lock ?? ''))
+{
+case '0':
+$ochecked= 'checked';
+$oactive='active';
+  break;
+case '1':
+$fchecked= 'checked';
+$factive='active';
+  break;
+default:
+$fchecked= 'checked';
+$factive='active';
+}
+
+@endphp
+<div class="form-group">
+<label for="lock">帳號狀態</label><br>
+<div class="btn-group" data-toggle="buttons">
+
+<label class="btn btn-secondary  {{ $factive}}">
+<input type="radio" name="lock" id="lock" value="1"  {{ $fchecked}}>  啟動
+</label>
+<label class="btn btn-secondary  {{ $oactive}}">
+<input type="radio" name="lock" id="lock"  value="0"  {{ $ochecked}}> 停權
+</label>
+</div>
+</div>
+
+
+
+
+  {{--  停權
+  @php
+        $ochecked='';
+        $fchecked= '';
+
+        if (  old('phone', $dataTypeContent->lock ?? '')=='0' ){
+            $ochecked= 'checked';
+        }else{
+            $fchecked= 'checked';
+        }
+@endphp
   <div class="form-group">
     <label for="lock">帳號狀態</label><br>
-   停權：<input type="radio"  id="lock" name="lock"  value="0">
-   啟動：<input type="radio"  id="lock" name="lock"  value="1">
-</div>
+   啟動：<input type="radio"  id="lock" name="lock"  value="1"  {{ $fchecked}}> &nbsp;
+   停權：<input type="radio"  id="lock" name="lock"  value="0"  {{ $ochecked}}>
+
+</div>  --}}
 
   {{--  預設角色  --}}
                             @can('editRoles', $dataTypeContent)
